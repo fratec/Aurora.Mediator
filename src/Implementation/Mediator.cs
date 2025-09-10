@@ -38,7 +38,7 @@ public class Mediator : IMediator
         return await handlerDelegate();
     }
 
-    public async Task Publish<TNotification>(TNotification notification, CancellationToken cancellationToken = default)
+    public async Task Publish<TNotification>(TNotification notification, bool sendToBus = false, CancellationToken cancellationToken = default)
         where TNotification : INotification
     {
         // 1. Chama handlers internos
@@ -51,7 +51,7 @@ public class Mediator : IMediator
         }
 
         // 2. EventBus externo (Azure, RabbitMQ, Kafka)
-        if (_eventBus != null)
+        if (_eventBus != null && sendToBus)
         {
             await _eventBus.PublishAsync(notification, cancellationToken);
         }

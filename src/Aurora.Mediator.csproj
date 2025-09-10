@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <PackageId>Aurora.Mediator</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Rafael Renault Andrade</Authors>
     <Company>Fratec</Company>
     <Description>Mediator custom with Requests, Commands, Notifications and generic EventBus, ready for .NET APIs.</Description>
@@ -15,9 +15,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <PackageReleaseNotes>
-    - First stable version of Aurora.Mediator
-    - Support for Commands, Queries, and Notifications
-    - Support for EventBus for Service Bus/RabbitMQ
+    - Added the option to send notifications to the EventBus optionally
+    - Added support for registering multiple assemblies
     </PackageReleaseNotes>
 
     <PackageReadmeFile>README.md</PackageReadmeFile>

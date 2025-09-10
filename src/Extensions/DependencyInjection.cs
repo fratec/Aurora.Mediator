@@ -6,30 +6,33 @@ namespace Aurora.Mediator.Extensions;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddMediator(this IServiceCollection services, Assembly assemblyWithHandlers)
+    public static IServiceCollection AddMediator(this IServiceCollection services, params Assembly[] assembliesWithHandlers)
     {
         services.AddScoped<IMediator, IMP.Mediator>();
-
-        // Registrar Handlers de Requests
-        var requestHandlers = assemblyWithHandlers.GetTypes()
-            .Where(t => t.GetInterfaces()
-                .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>)));
-        foreach (var handler in requestHandlers)
+        foreach (var assemblyWithHandlers in assembliesWithHandlers)
         {
-            var serviceType = handler.GetInterfaces()
-                .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>));
-            services.AddScoped(serviceType, handler);
-        }
 
-        // Registrar Handlers de Notifications
-        var notificationHandlers = assemblyWithHandlers.GetTypes()
-            .Where(t => t.GetInterfaces()
-                .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(INotificationHandler<>)));
-        foreach (var handler in notificationHandlers)
-        {
-            var serviceType = handler.GetInterfaces()
-                .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(INotificationHandler<>));
-            services.AddScoped(serviceType, handler);
+            // Registrar Handlers de Requests
+            var requestHandlers = assemblyWithHandlers.GetTypes()
+                .Where(t => t.GetInterfaces()
+                    .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>)));
+            foreach (var handler in requestHandlers)
+            {
+                var serviceType = handler.GetInterfaces()
+                    .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IRequestHandler<,>));
+                services.AddScoped(serviceType, handler);
+            }
+
+            // Registrar Handlers de Notifications
+            var notificationHandlers = assemblyWithHandlers.GetTypes()
+                .Where(t => t.GetInterfaces()
+                    .Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(INotificationHandler<>)));
+            foreach (var handler in notificationHandlers)
+            {
+                var serviceType = handler.GetInterfaces()
+                    .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(INotificationHandler<>));
+                services.AddScoped(serviceType, handler);
+            }
         }
 
         return services;
