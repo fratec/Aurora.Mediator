@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <PackageId>Aurora.Mediator</PackageId>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <Authors>Rafael Renault Andrade</Authors>
     <Company>Fratec</Company>
     <Description>Mediator custom with Requests, Commands, Notifications and generic EventBus, ready for .NET APIs.</Description>
@@ -18,6 +18,7 @@
     - Added the option to send notifications to the EventBus optionally
     - Added support for registering multiple assemblies
     - Added default validation behavior and logging behavior
+    - Fix logging behavior
     </PackageReleaseNotes>
 
     <PackageReadmeFile>README.md</PackageReadmeFile>
