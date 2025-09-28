@@ -44,4 +44,13 @@ public static class DependencyInjection
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(TBehavior));
         return services;
     }
+
+    public static IServiceCollection AddPipelineBehavior(this IServiceCollection services, Type openGenericBehaviorType)
+    {
+        if (!openGenericBehaviorType.IsGenericTypeDefinition)
+            throw new ArgumentException("The type must be an open generic, e.g.: typeof(LoggingBehavior<,>)");
+
+        services.AddScoped(typeof(IPipelineBehavior<,>), openGenericBehaviorType);
+        return services;
+    }
 }
