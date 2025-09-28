@@ -6,10 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
     <PackageId>Aurora.Mediator</PackageId>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <Authors>Rafael Renault Andrade</Authors>
     <Company>Fratec</Company>
-    <Description>Mediator custom with Requests, Commands, Notifications and generic EventBus, ready for .NET APIs.</Description>
+    <Description>
+      Mediator custom with Requests, Commands, Notifications and generic EventBus, ready for .NET APIs.
+    
+      In this new version 1.3.1 we have added support for open generic behaviors, allowing you to create reusable behaviors that can be applied to multiple request types. This enhancement provides greater flexibility and reduces redundancy in your codebase.
+    </Description>
     <PackageTags>eventbus;mediatr;behaviors;ddd</PackageTags>
     <RepositoryUrl>https://github.com/fratec/Aurora.Mediator</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -20,6 +24,7 @@
     - Added default validation behavior and logging behavior
     - Fix logging behavior
     - Support to add open generic behaviors
+    - Add Validation Extension DI registration
     </PackageReleaseNotes>
 
     <PackageReadmeFile>README.md</PackageReadmeFile>
