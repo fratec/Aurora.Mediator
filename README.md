@@ -21,7 +21,7 @@ dotnet add package Aurora.Mediator
 2. Registre o Mediator no seu container de DI:
     ```csharp
     // Startup.cs ou Program.cs
-    builder.Services.AddMediator(typeof(Program).Assembly);
+    builder.Services.AddAuroraMediator(typeof(Program).Assembly);
     ```
 3. Crie seus comandos, queries e notificações implementando as interfaces:
     - `IRequest<TResponse>`
