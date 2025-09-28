@@ -7,9 +7,12 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 {
     public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
     {
-        Console.WriteLine($"[LOG] Started {typeof(TRequest).Name}");
+        Console.WriteLine("➡️ Handling {RequestName} with data: {@Request}", typeof(TRequest).Name, request);
+
         var response = await next();
-        Console.WriteLine($"[LOG] Ended {typeof(TRequest).Name}");
+
+        Console.WriteLine("✅ Handled {RequestName}. Response: {@Response}", typeof(TRequest).Name, response);
+
         return response;
     }
 }

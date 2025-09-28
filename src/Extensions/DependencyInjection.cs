@@ -6,7 +6,7 @@ namespace Aurora.Mediator.Extensions;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddMediator(this IServiceCollection services, params Assembly[] assembliesWithHandlers)
+    public static IServiceCollection AddAuroraMediator(this IServiceCollection services, params Assembly[] assembliesWithHandlers)
     {
         services.AddScoped<IMediator, IMP.Mediator>();
         foreach (var assemblyWithHandlers in assembliesWithHandlers)
