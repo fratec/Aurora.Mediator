@@ -131,7 +131,7 @@ public class LocalUserCreatedHandler : INotificationHandler<UserCreatedNotificat
 }
 
 // Registro DI
-builder.Services.AddMediator(typeof(Program).Assembly);
+builder.Services.AddAuroraMediator(typeof(Program).Assembly);
 
 // Publicação
 await _mediator.Publish(new UserCreatedNotification("Rafael", "rafael@bd.com"));
@@ -165,7 +165,7 @@ public class AzureServiceBusEventBus : IEventBus
 
 // Registro DI
 builder.Services.AddSingleton<IEventBus, AzureServiceBusEventBus>();
-builder.Services.AddMediator(typeof(Program).Assembly);
+builder.Services.AddAuroraMediator(typeof(Program).Assembly);
 
 // Publicação
 await _mediator.Publish(new UserCreatedNotification("Rafael", "rafael@bd.com"));
@@ -207,7 +207,7 @@ public class AzureServiceBusEventBus : IEventBus
 
 // Registro DI
 builder.Services.AddSingleton<IEventBus, AzureServiceBusEventBus>();
-builder.Services.AddMediator(typeof(Program).Assembly);
+builder.Services.AddAuroraMediator(typeof(Program).Assembly);
 
 // Publicação
 await _mediator.Publish(new UserCreatedNotification("Rafael", "rafael@bd.com"));
