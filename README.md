@@ -1,4 +1,4 @@
-
+![Aurora.Mediator Logo](https://github.com/fratec/Aurora.Mediator/blob/main/Aurora.PNG)
 # Aurora.Mediator
 
 Uma implementação simples e eficiente de Mediator para .NET, com mensagens in-process e sem dependências externas.
